@@ -1,6 +1,6 @@
 {
   "name": "yapi2apipost",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "yapi2apipost",
   "main": "dist/index.js",
   "files": [
