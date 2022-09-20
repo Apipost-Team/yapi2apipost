@@ -21,7 +21,7 @@ npm i yapi2apipost
 ```js
 import yapi2apipost from 'yapi2apipost';
 const converter = new yapi2apipost();
-const convertResult= converter.convert(yapiJson);
+const convertResult=await converter.convert(yapiJson);
 ```
 **检查结果:**
 
