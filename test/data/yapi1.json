@@ -1,0 +1,639 @@
+[
+  {
+    "index": 0,
+    "name": "导入导出",
+    "desc": null,
+    "add_time": 1659339054,
+    "up_time": 1659339054,
+    "list": [
+      {
+        "query_path": {
+          "path": "/common/getInstanceList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21927,
+        "method": "GET",
+        "catid": 2433,
+        "title": "分页查询导入导出列表",
+        "path": "/common/getInstanceList",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 609,
+        "add_time": 1659583142,
+        "up_time": 1659583774,
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "62eb3d1ecf1c790f729702ed",
+            "name": "current",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "62eb3d1ecf1c790f729702ec",
+            "name": "pageSize",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "62eb3d1ecf1c790f729702eb",
+            "name": "userId",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "62eb3d1ecf1c790f729702ea",
+            "name": "exeStatus",
+            "example": "",
+            "desc": "执行状态，0：等待中，1：就绪，2：进行中，3：成功，4：失败，5：取消"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3d1ecf1c790f729702e9",
+            "name": "taskType",
+            "example": "",
+            "desc": "实例类型，1：导出任务，2：导入任务"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3d1ecf1c790f729702e8",
+            "name": "startTime",
+            "example": "",
+            "desc": "开始时间，String类型，全格式 yyyy-MM-dd HH:mm:ss"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3d1ecf1c790f729702e7",
+            "name": "endTime",
+            "example": "",
+            "desc": "结束时间，String类型，全格式 yyyy-MM-dd HH:mm:ss"
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<p>返回结果示例：<br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">{</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"success\": &nbsp;true,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"code\": 0,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"msg\": null,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"data\":&nbsp;&nbsp;&nbsp;&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;{</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"total\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"row\": [ {<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskCode\": \"task-002\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskName\": \"导出号码资源列表\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskType\": 1,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"exeMsg\": null,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"instanceId\": \"xxx\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"userId\":\"19104794\",</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tanantId\":\"xxxx\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"startTime\": 1545635406000,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"endTime\": 1545635302000,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"exeStatus\": 2,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"subTotal\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"totalSize\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"downloadToken\": xxxx,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullDownloadUrl\": \"<a href=\"http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&amp;token=xxxx\">http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&amp;token=xxxx</a>\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">\"fullErrorFileUrl\":\"xxxxxxxxxxxxxx\",</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullDownloadOutUrl\":\"xxxxxxxxxxx\", // 外网导入导出下载地址</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullErrorFileOutUrl\":\"xxxxxxxxxxxx\"// 外网失败文件下载地址<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">}</span></p>\n",
+        "markdown": "返回结果示例：\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">{</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"success\":  true, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"code\": 0, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"msg\": null, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"data\":    </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">    {</span>\n       \"total\": 0,\n        \"row\": [ {\n                \"taskCode\": \"task-002\",\n                \"taskName\": \"导出号码资源列表\",\n                \"taskType\": 1,\n                \"exeMsg\": null,\n                \"instanceId\": \"xxx\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                \"userId\":\"19104794\",</span>\n                \"tanantId\":\"xxxx\",\n                \"startTime\": 1545635406000,\n                \"endTime\": 1545635302000,\n                \"exeStatus\": 2,\n                \"subTotal\": 0,\n                \"totalSize\": 0,\n                \"downloadToken\": xxxx,\n                \"fullDownloadUrl\": \"[http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&token=xxxx](http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&token=xxxx)\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                </span>\n                <span class=\"colour\" style=\"color: rgb(51, 51, 51);\">\"fullErrorFileUrl\":\"xxxxxxxxxxxxxx\",</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                 \"fullDownloadOutUrl\":\"xxxxxxxxxxx\", // 外网导入导出下载地址</span>\n                 \"fullErrorFileOutUrl\":\"xxxxxxxxxxxx\"// 外网失败文件下载地址\n            }]<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">    }</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">}</span>",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"string\"},\"row\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"taskCode\":{\"type\":\"string\",\"description\":\"模板任务编码\"},\"taskName\":{\"type\":\"string\",\"description\":\"模板任务名称\"},\"taskType\":{\"type\":\"string\",\"description\":\"任务类型\"},\"exeMsg\":{\"type\":\"string\",\"description\":\"执行异常信息\"},\"instanceId\":{\"type\":\"string\",\"description\":\"实例id\"},\"userId\":{\"type\":\"string\",\"description\":\"用户工号\"},\"tanantId\":{\"type\":\"string\",\"description\":\"租户号Id\"},\"startTime\":{\"type\":\"string\",\"description\":\"开始时间\"},\"endTime\":{\"type\":\"string\",\"description\":\"结束时间\"},\"exeStatus\":{\"type\":\"string\",\"description\":\"执行状态\\\", 实例状态，0：等待中，1：就绪，2：进行中，3：成功，4：失败，5：取消\"},\"subTotal\":{\"type\":\"string\",\"description\":\"已导入或导出数量\"},\"totalSize\":{\"type\":\"string\",\"description\":\"总数量\"},\"downloadToken\":{\"type\":\"string\",\"description\":\"下载token\"},\"fullDownloadUrl\":{\"type\":\"string\",\"description\":\"下载url\"},\"fullErrorFileUrl\":{\"type\":\"string\",\"description\":\"导入失败文件下载url\"},\"fullDownloadOutUrl\":{\"type\":\"string\",\"description\":\"外网下载url\"},\"fullErrorFileOutUrl\":{\"type\":\"string\",\"description\":\"外网失败文件下载url\"}},\"required\":[\"taskCode\",\"taskName\",\"taskType\",\"exeMsg\",\"instanceId\",\"userId\",\"tanantId\",\"startTime\",\"endTime\",\"exeStatus\",\"fullDownloadOutUrl\",\"fullErrorFileUrl\",\"fullDownloadUrl\",\"downloadToken\",\"totalSize\",\"subTotal\",\"fullErrorFileOutUrl\"]}}},\"required\":[\"total\",\"row\"]}}}"
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/common/import",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21777,
+        "method": "POST",
+        "catid": 2433,
+        "title": "导入",
+        "path": "/basic-store-check/common/import",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 609,
+        "add_time": 1659339086,
+        "up_time": 1659581750,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62eb3536cf1c790f729702cc",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3536cf1c790f729702cb",
+            "name": "Cookie",
+            "value": ""
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "62eb3536cf1c790f729702d1",
+            "name": "taskCode",
+            "type": "text",
+            "desc": "任务编码"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3536cf1c790f729702d0",
+            "name": "appCode",
+            "type": "text",
+            "example": "",
+            "desc": "应用编码"
+          },
+          {
+            "required": "0",
+            "_id": "62eb3536cf1c790f729702cf",
+            "name": "userId",
+            "type": "text",
+            "example": "",
+            "desc": "用户id    默认取传参，否则取cookie"
+          },
+          {
+            "required": "0",
+            "_id": "62eb3536cf1c790f729702ce",
+            "name": "extraPara",
+            "type": "text",
+            "example": "",
+            "desc": "拓展参数，jsonstring"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3536cf1c790f729702cd",
+            "name": "file",
+            "type": "file",
+            "example": "",
+            "desc": "文件"
+          }
+        ],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}"
+      },
+      {
+        "query_path": {
+          "path": "/common/fetchFile",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21932,
+        "method": "GET",
+        "catid": 2433,
+        "title": "导入导出任务实例下载",
+        "path": "/common/fetchFile",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 609,
+        "add_time": 1659583841,
+        "up_time": 1659584031,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "62eb3e1fcf1c790f729702ef",
+            "name": "instanceId",
+            "desc": "任务实例ID"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3e1fcf1c790f729702ee",
+            "name": "token",
+            "example": "",
+            "desc": "这里的token不是执行导入导出任务时的token，而是查询实例列表中返回的downloadToken"
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}"
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/common/export",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21782,
+        "method": "POST",
+        "catid": 2433,
+        "title": "导出",
+        "path": "/basic-store-check/common/export",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 609,
+        "add_time": 1659339365,
+        "up_time": 1659581717,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62eb3515cf1c790f729702ca",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "62eb3515cf1c790f729702c9",
+            "name": "Cookie",
+            "value": ""
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
+        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"taskCode\":{\"type\":\"string\"},\"appCode\":{\"type\":\"string\"},\"userId\":{\"type\":\"string\",\"description\":\"默认取传参，否则取Cookie\"},\"conJson\":{\"type\":\"string\"},\"fileType\":{\"type\":\"string\",\"description\":\"默认1：excel\"}},\"required\":[\"appCode\",\"taskCode\"]}"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "name": "模板管理",
+    "desc": null,
+    "add_time": 1658129725,
+    "up_time": 1658129725,
+    "list": [
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21207,
+        "method": "GET",
+        "catid": 2395,
+        "title": "模板列表下拉查询（分页）",
+        "path": "/basic-store-check/template/list",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c42",
+            "name": "name",
+            "desc": "模板名称：模糊查询"
+          },
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c41",
+            "name": "status",
+            "example": "",
+            "desc": "模板状态：0 启用 1 停用"
+          },
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c40",
+            "name": "templateType",
+            "example": "",
+            "desc": "模板类型：1 固定 2 自定义"
+          },
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c3f",
+            "name": "current",
+            "example": "",
+            "desc": "分页参数：当前页：默认0"
+          },
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c3e",
+            "name": "pageSize",
+            "example": "",
+            "desc": "分页参数：分页大小：默认10"
+          },
+          {
+            "required": "0",
+            "_id": "62fe222bcf1c790f72970c3d",
+            "name": "filterEmpty",
+            "example": "",
+            "desc": "Boolean值  true：过滤空评分项的模板，默认为false"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62fe222bcf1c790f72970c43",
+            "name": "Cookie",
+            "value": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"string\",\"description\":\"总数\"},\"rows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"}},\"required\":[\"templateId\",\"name\"]}}},\"required\":[\"total\",\"rows\"]}}}",
+        "uid": 609,
+        "add_time": 1658132061,
+        "up_time": 1660822059,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/page",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 21342,
+        "method": "GET",
+        "catid": 2395,
+        "title": "模板列表查询（分页）",
+        "path": "/basic-store-check/template/page",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705da",
+            "name": "templateId",
+            "desc": "模板id（支持多个,以\",\"分隔）"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d9",
+            "name": "name",
+            "example": "",
+            "desc": "模板名称，模糊匹配"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d8",
+            "name": "scoreModel",
+            "example": "",
+            "desc": "打分模式：1 评分模式 2 扣分模式  （支持多个,以\",\"分隔）"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d7",
+            "name": "templateType",
+            "example": "",
+            "desc": "模板类型：1 固定 2 自定义"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d6",
+            "name": "status",
+            "example": "",
+            "desc": "模板状态：0 启用 1 停用"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d5",
+            "name": "current",
+            "example": "",
+            "desc": "分页参数：当前页 默认0"
+          },
+          {
+            "required": "0",
+            "_id": "62f0a805cf1c790f729705d4",
+            "name": "pageSize",
+            "example": "",
+            "desc": "分页参数：分页大小 默认10"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62f0a805cf1c790f729705db",
+            "name": "Cookie",
+            "value": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"number\",\"description\":\"总数\"},\"rows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"string\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"scoreTypeNum\":{\"type\":\"number\",\"description\":\"评分项分类数量\"},\"scoreNum\":{\"type\":\"number\",\"description\":\"评分项数量\"},\"score\":{\"type\":\"number\",\"description\":\"模板分数\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"}},\"required\":[\"templateId\",\"status\",\"score\",\"scoreTypeNum\",\"scoreModel\",\"name\",\"scoreNum\"]}}},\"required\":[\"total\",\"rows\"]}}}",
+        "uid": 609,
+        "add_time": 1658310873,
+        "up_time": 1659938821,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/detail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 3,
+        "tag": [],
+        "_id": 21217,
+        "method": "GET",
+        "catid": 2395,
+        "title": "模板详情",
+        "path": "/basic-store-check/template/detail",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "62ecc1cbcf1c790f729703cb",
+            "name": "templateId",
+            "desc": "模板id"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62ecc1cbcf1c790f729703cc",
+            "name": "Cookie",
+            "value": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"totalScore\":{\"type\":\"number\",\"description\":\"总分数\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型：1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"},\"scoreCodeList\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"评分项编码集合\"},\"scoreList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"scoreType\":{\"type\":\"number\",\"description\":\"评分项类型\"},\"scoreTypeName\":{\"type\":\"string\",\"description\":\"评分项类型名称\"},\"scoreItemList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\",\"description\":\"id\"},\"content\":{\"type\":\"string\",\"description\":\"评分项内容\"},\"score\":{\"type\":\"number\",\"description\":\"分值\"},\"amendType\":{\"type\":\"number\",\"description\":\"整改是否需传图0 是 1 否\"},\"pollingType\":{\"type\":\"number\",\"description\":\"巡检是否需传图0 是 1 否\"},\"imagesLinkList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"fileType\":{\"type\":\"string\",\"description\":\"文件类型（0图片 1word 2ppt 3zip）\"},\"fileOriginalName\":{\"type\":\"string\",\"description\":\"文件原名（带后缀）\"},\"field_3\":{\"type\":\"string\",\"description\":\"地址\"}},\"required\":[\"fileType\",\"fileOriginalName\",\"field_3\"]},\"description\":\"评分项标准图片链接集合\"}},\"required\":[\"id\",\"score\",\"content\",\"imagesLinkList\",\"amendType\",\"pollingType\"]},\"description\":\"评分项集合\"}},\"required\":[\"scoreType\",\"scoreTypeName\",\"scoreItemList\"]},\"description\":\"评分项集合\"}},\"required\":[\"templateId\",\"conclusionType\",\"templateType\",\"passValue\",\"status\",\"scoreModel\",\"name\",\"scoreList\",\"totalScore\",\"scoreCodeList\"]}}}",
+        "uid": 609,
+        "add_time": 1658136472,
+        "up_time": 1659683275,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/addOrUpdate",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 4,
+        "tag": [],
+        "_id": 21152,
+        "method": "POST",
+        "catid": 2395,
+        "title": "新增或修改模板 （操作模板评分项）",
+        "path": "/basic-store-check/template/addOrUpdate",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62ff3f3bcf1c790f72970c65",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "62ff3f3bcf1c790f72970c64",
+            "name": "Cookie",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "<p>无 templateId时 为&nbsp; 新增模板<br>\n有 templateId时 为&nbsp; 修改模板</p>\n",
+        "markdown": "无 templateId时 为  新增模板\n有 templateId时 为  修改模板",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"string\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型 1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"amendDay\":{\"type\":\"number\",\"description\":\"实效（天）\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"},\"scoreCodeList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"评分项code\"},\"description\":\"评分项集合\"}},\"required\":[\"templateType\",\"scoreModel\",\"name\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
+        "uid": 609,
+        "add_time": 1658129725,
+        "up_time": 1660895035,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 5,
+        "tag": [],
+        "_id": 21167,
+        "method": "POST",
+        "catid": 2395,
+        "title": "编辑模板",
+        "path": "/basic-store-check/template/update",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62e2411ccf1c790f7296fdc0",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "62e2411ccf1c790f7296fdbf",
+            "name": "Cookie",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型 1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"}},\"required\":[\"templateId\",\"conclusionType\",\"templateType\",\"scoreModel\",\"name\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
+        "uid": 609,
+        "add_time": 1658129725,
+        "up_time": 1658994972,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/basic-store-check/template/updateStatus",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 6,
+        "tag": [],
+        "_id": 21142,
+        "method": "POST",
+        "catid": 2395,
+        "title": "启用/停用模板",
+        "path": "/basic-store-check/template/updateStatus",
+        "project_id": 882,
+        "req_params": [],
+        "res_body_type": "json",
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "62e24129cf1c790f7296fdc2",
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "required": "1",
+            "_id": "62e24129cf1c790f7296fdc1",
+            "name": "Cookie",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"}},\"required\":[\"templateId\",\"status\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
+        "uid": 609,
+        "add_time": 1658129725,
+        "up_time": 1658994985,
+        "__v": 0
+      }
+    ]
+  }
+]

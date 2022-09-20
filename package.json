@@ -9,14 +9,15 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "rollup -c rollup.config.js"
+    "build": "npm version patch && rollup -c rollup.config.js && npm publish"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "apipost-mock-schema": "^0.0.14",
     "core-js": "^3.9.0",
     "rollup": "^2.74.1",
-    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-typescript2": "^0.31.2"

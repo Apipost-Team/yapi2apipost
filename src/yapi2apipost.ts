@@ -1,3 +1,4 @@
+import MockSchema from 'apipost-mock-schema';
 class yapi2apipost {
   version: string;
   project: any;
@@ -55,7 +56,7 @@ class yapi2apipost {
     };
     return newFolder;
   }
-  createApis(item: any) {
+  async createApis(item: any) {
     var api: any = {
       name: item?.title || '新建接口',
       target_type: 'api',
@@ -115,20 +116,30 @@ class yapi2apipost {
           })
         }
       }else{
+        if(Object.prototype.toString.call(item?.req_body_other) === '[object String]'){
+          try {
+            const newSchema = new MockSchema();
+            let jsonExample = await newSchema.mock(JSON.parse(item?.req_body_other) || {});
+            request.body.raw = JSON.stringify(jsonExample);
+          } catch (error) {
+            request.body.raw=item?.req_body_other || ''
+          }
+        }else{
+          request.body.raw=item?.req_body_other || ''
+        }
         request.body.mode = 'json';
-        request.body.raw=item?.req_body_other || ''
       }
     }
     return api;
   }
-  handleData(json: any[], parent: any = null) {
+  async handleData(json: any[], parent: any = null) {
     for (const item of json) {
       let target;
       if (item.hasOwnProperty('list') && item.list instanceof Array) {
         target = this.createFolder(item);
-        this.handleData(item.list, target);
+        await this.handleData(item.list, target);
       } else {
-        target = this.createApis(item);
+        target = await this.createApis(item);
       }
       if (parent && parent != null && parent.hasOwnProperty('children')) {
         parent.children.push(target);
@@ -137,14 +148,14 @@ class yapi2apipost {
       }
     }
   }
-  convert(json: any) {
+  async convert(json: any) {
     try {
       var validationResult = this.validate(json);
       if (validationResult.status === 'error') {
         return validationResult;
       }
       this.handleInfo(json);
-      this.handleData(json, null)
+      await this.handleData(json, null)
       validationResult.data = {
         project: this.project,
         apis: this.apis
