@@ -62,6 +62,7 @@ class yapi2apipost {
       target_type: 'api',
       url: item?.path || "",
       method: item?.method.toUpperCase() || 'GET',
+      tags: item?.tag || [],
       request: {
         'query': [],
         'header': [],
@@ -115,17 +116,28 @@ class yapi2apipost {
             field_type: "Text"
           })
         }
-      }else{
-        if(Object.prototype.toString.call(item?.req_body_other) === '[object String]'){
+      } else if (item.req_body_type == 'json' && item.hasOwnProperty('res_body')) {
+        try {
+          if(Object.prototype.toString.call(item.res_body) !== '[object Object]'){
+            item.res_body = JSON.parse(item.res_body);
+          }
+        } catch (error) {}
+        request.body.mode = 'json';
+        if (item.res_body.hasOwnProperty('type')) {
+          request.body.raw_schema = item.res_body;
+        }
+      }
+      else {
+        if (Object.prototype.toString.call(item?.req_body_other) === '[object String]') {
           try {
             const newSchema = new MockSchema();
             let jsonExample = await newSchema.mock(JSON.parse(item?.req_body_other) || {});
             request.body.raw = JSON.stringify(jsonExample);
           } catch (error) {
-            request.body.raw=item?.req_body_other || ''
+            request.body.raw = item?.req_body_other || ''
           }
-        }else{
-          request.body.raw=item?.req_body_other || ''
+        } else {
+          request.body.raw = item?.req_body_other || ''
         }
         request.body.mode = 'json';
       }
@@ -160,7 +172,7 @@ class yapi2apipost {
         project: this.project,
         apis: this.apis
       };
-      console.log('api', JSON.stringify(validationResult));
+      console.log('api', JSON.stringify(validationResult.data.apis));
       return validationResult;
     } catch (error) {
       return this.ConvertResult('error', String(error))

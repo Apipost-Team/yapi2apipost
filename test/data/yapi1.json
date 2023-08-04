@@ -1,14 +1,14 @@
 [
   {
     "index": 0,
-    "name": "导入导出",
-    "desc": null,
-    "add_time": 1659339054,
-    "up_time": 1659339054,
+    "name": "account-controller",
+    "desc": "Account Controller",
+    "add_time": 1624439817,
+    "up_time": 1624439817,
     "list": [
       {
         "query_path": {
-          "path": "/common/getInstanceList",
+          "path": "/account/query/duty/list",
           "params": []
         },
         "edit_uid": 0,
@@ -18,620 +18,874 @@
         "res_body_is_json_schema": true,
         "api_opened": false,
         "index": 0,
-        "tag": [],
-        "_id": 21927,
-        "method": "GET",
-        "catid": 2433,
-        "title": "分页查询导入导出列表",
-        "path": "/common/getInstanceList",
-        "project_id": 882,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 609,
-        "add_time": 1659583142,
-        "up_time": 1659583774,
-        "req_query": [
-          {
-            "required": "0",
-            "_id": "62eb3d1ecf1c790f729702ed",
-            "name": "current",
-            "desc": ""
-          },
-          {
-            "required": "0",
-            "_id": "62eb3d1ecf1c790f729702ec",
-            "name": "pageSize",
-            "example": "",
-            "desc": ""
-          },
-          {
-            "required": "0",
-            "_id": "62eb3d1ecf1c790f729702eb",
-            "name": "userId",
-            "example": "",
-            "desc": ""
-          },
-          {
-            "required": "0",
-            "_id": "62eb3d1ecf1c790f729702ea",
-            "name": "exeStatus",
-            "example": "",
-            "desc": "执行状态，0：等待中，1：就绪，2：进行中，3：成功，4：失败，5：取消"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3d1ecf1c790f729702e9",
-            "name": "taskType",
-            "example": "",
-            "desc": "实例类型，1：导出任务，2：导入任务"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3d1ecf1c790f729702e8",
-            "name": "startTime",
-            "example": "",
-            "desc": "开始时间，String类型，全格式 yyyy-MM-dd HH:mm:ss"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3d1ecf1c790f729702e7",
-            "name": "endTime",
-            "example": "",
-            "desc": "结束时间，String类型，全格式 yyyy-MM-dd HH:mm:ss"
-          }
+        "tag": [
+          "account-controller"
         ],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<p>返回结果示例：<br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">{</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"success\": &nbsp;true,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"code\": 0,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"msg\": null,&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;\"data\":&nbsp;&nbsp;&nbsp;&nbsp;</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;{</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"total\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"row\": [ {<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskCode\": \"task-002\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskName\": \"导出号码资源列表\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"taskType\": 1,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"exeMsg\": null,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"instanceId\": \"xxx\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"userId\":\"19104794\",</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"tanantId\":\"xxxx\",<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"startTime\": 1545635406000,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"endTime\": 1545635302000,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"exeStatus\": 2,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"subTotal\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"totalSize\": 0,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"downloadToken\": xxxx,<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullDownloadUrl\": \"<a href=\"http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&amp;token=xxxx\">http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&amp;token=xxxx</a>\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">\"fullErrorFileUrl\":\"xxxxxxxxxxxxxx\",</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullDownloadOutUrl\":\"xxxxxxxxxxx\", // 外网导入导出下载地址</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"fullErrorFileOutUrl\":\"xxxxxxxxxxxx\"// 外网失败文件下载地址<br>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">}</span></p>\n",
-        "markdown": "返回结果示例：\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">{</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"success\":  true, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"code\": 0, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"msg\": null, </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">   \"data\":    </span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">    {</span>\n       \"total\": 0,\n        \"row\": [ {\n                \"taskCode\": \"task-002\",\n                \"taskName\": \"导出号码资源列表\",\n                \"taskType\": 1,\n                \"exeMsg\": null,\n                \"instanceId\": \"xxx\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                \"userId\":\"19104794\",</span>\n                \"tanantId\":\"xxxx\",\n                \"startTime\": 1545635406000,\n                \"endTime\": 1545635302000,\n                \"exeStatus\": 2,\n                \"subTotal\": 0,\n                \"totalSize\": 0,\n                \"downloadToken\": xxxx,\n                \"fullDownloadUrl\": \"[http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&token=xxxx](http://test.kiop.haiziwang.com:8787/kiop-web/instance/fetchFile.do?instanceId=xx&token=xxxx)\",<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                </span>\n                <span class=\"colour\" style=\"color: rgb(51, 51, 51);\">\"fullErrorFileUrl\":\"xxxxxxxxxxxxxx\",</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">                 \"fullDownloadOutUrl\":\"xxxxxxxxxxx\", // 外网导入导出下载地址</span>\n                 \"fullErrorFileOutUrl\":\"xxxxxxxxxxxx\"// 外网失败文件下载地址\n            }]<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">    }</span>\n<span class=\"colour\" style=\"color: rgb(51, 51, 51);\">}</span>",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"string\"},\"row\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"taskCode\":{\"type\":\"string\",\"description\":\"模板任务编码\"},\"taskName\":{\"type\":\"string\",\"description\":\"模板任务名称\"},\"taskType\":{\"type\":\"string\",\"description\":\"任务类型\"},\"exeMsg\":{\"type\":\"string\",\"description\":\"执行异常信息\"},\"instanceId\":{\"type\":\"string\",\"description\":\"实例id\"},\"userId\":{\"type\":\"string\",\"description\":\"用户工号\"},\"tanantId\":{\"type\":\"string\",\"description\":\"租户号Id\"},\"startTime\":{\"type\":\"string\",\"description\":\"开始时间\"},\"endTime\":{\"type\":\"string\",\"description\":\"结束时间\"},\"exeStatus\":{\"type\":\"string\",\"description\":\"执行状态\\\", 实例状态，0：等待中，1：就绪，2：进行中，3：成功，4：失败，5：取消\"},\"subTotal\":{\"type\":\"string\",\"description\":\"已导入或导出数量\"},\"totalSize\":{\"type\":\"string\",\"description\":\"总数量\"},\"downloadToken\":{\"type\":\"string\",\"description\":\"下载token\"},\"fullDownloadUrl\":{\"type\":\"string\",\"description\":\"下载url\"},\"fullErrorFileUrl\":{\"type\":\"string\",\"description\":\"导入失败文件下载url\"},\"fullDownloadOutUrl\":{\"type\":\"string\",\"description\":\"外网下载url\"},\"fullErrorFileOutUrl\":{\"type\":\"string\",\"description\":\"外网失败文件下载url\"}},\"required\":[\"taskCode\",\"taskName\",\"taskType\",\"exeMsg\",\"instanceId\",\"userId\",\"tanantId\",\"startTime\",\"endTime\",\"exeStatus\",\"fullDownloadOutUrl\",\"fullErrorFileUrl\",\"fullDownloadUrl\",\"downloadToken\",\"totalSize\",\"subTotal\",\"fullErrorFileOutUrl\"]}}},\"required\":[\"total\",\"row\"]}}}"
-      },
-      {
-        "query_path": {
-          "path": "/basic-store-check/common/import",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "undone",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 21777,
+        "_id": 2946,
         "method": "POST",
-        "catid": 2433,
-        "title": "导入",
-        "path": "/basic-store-check/common/import",
-        "project_id": 882,
+        "title": "账户权益责任列表查询",
+        "path": "/account/query/duty/list",
         "req_params": [],
-        "res_body_type": "json",
-        "uid": 609,
-        "add_time": 1659339086,
-        "up_time": 1659581750,
-        "req_query": [],
+        "req_body_form": [],
         "req_headers": [
           {
             "required": "1",
-            "_id": "62eb3536cf1c790f729702cc",
-            "name": "Content-Type",
-            "value": "multipart/form-data"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3536cf1c790f729702cb",
-            "name": "Cookie",
-            "value": ""
-          }
-        ],
-        "req_body_form": [
-          {
-            "required": "1",
-            "_id": "62eb3536cf1c790f729702d1",
-            "name": "taskCode",
-            "type": "text",
-            "desc": "任务编码"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3536cf1c790f729702d0",
-            "name": "appCode",
-            "type": "text",
-            "example": "",
-            "desc": "应用编码"
-          },
-          {
-            "required": "0",
-            "_id": "62eb3536cf1c790f729702cf",
-            "name": "userId",
-            "type": "text",
-            "example": "",
-            "desc": "用户id    默认取传参，否则取cookie"
-          },
-          {
-            "required": "0",
-            "_id": "62eb3536cf1c790f729702ce",
-            "name": "extraPara",
-            "type": "text",
-            "example": "",
-            "desc": "拓展参数，jsonstring"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3536cf1c790f729702cd",
-            "name": "file",
-            "type": "file",
-            "example": "",
-            "desc": "文件"
-          }
-        ],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "req_body_type": "form",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}"
-      },
-      {
-        "query_path": {
-          "path": "/common/fetchFile",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "undone",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 21932,
-        "method": "GET",
-        "catid": 2433,
-        "title": "导入导出任务实例下载",
-        "path": "/common/fetchFile",
-        "project_id": 882,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 609,
-        "add_time": 1659583841,
-        "up_time": 1659584031,
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "62eb3e1fcf1c790f729702ef",
-            "name": "instanceId",
-            "desc": "任务实例ID"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3e1fcf1c790f729702ee",
-            "name": "token",
-            "example": "",
-            "desc": "这里的token不是执行导入导出任务时的token，而是查询实例列表中返回的downloadToken"
-          }
-        ],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}"
-      },
-      {
-        "query_path": {
-          "path": "/basic-store-check/common/export",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "undone",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 21782,
-        "method": "POST",
-        "catid": 2433,
-        "title": "导出",
-        "path": "/basic-store-check/common/export",
-        "project_id": 882,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 609,
-        "add_time": 1659339365,
-        "up_time": 1659581717,
-        "req_query": [],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "62eb3515cf1c790f729702ca",
+            "_id": "60d2fc0956c0a44a40a6ca87",
             "name": "Content-Type",
             "value": "application/json"
-          },
-          {
-            "required": "1",
-            "_id": "62eb3515cf1c790f729702c9",
-            "name": "Cookie",
-            "value": ""
           }
         ],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60d2fc0956c0a409f3a6ca88",
+            "name": "accountNo",
+            "desc": "accountNo"
+          }
+        ],
         "req_body_type": "json",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
-        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"taskCode\":{\"type\":\"string\"},\"appCode\":{\"type\":\"string\"},\"userId\":{\"type\":\"string\",\"description\":\"默认取传参，否则取Cookie\"},\"conJson\":{\"type\":\"string\"},\"fileType\":{\"type\":\"string\",\"description\":\"默认1：excel\"}},\"required\":[\"appCode\",\"taskCode\"]}"
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"响应状态码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"accountNo\": {\n          \"type\": \"string\",\n          \"description\": \"账户号\"\n        },\n        \"accountType\": {\n          \"type\": \"string\",\n          \"description\": \"账户类型\"\n        },\n        \"rightsVos\": {\n          \"type\": \"array\",\n          \"description\": \"权益列表\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"accountNo\": {\n                \"type\": \"string\",\n                \"description\": \"账户号\"\n              },\n              \"accountType\": {\n                \"type\": \"string\",\n                \"description\": \"账户类型\"\n              },\n              \"activateTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"权益激活时间\"\n              },\n              \"agentNo\": {\n                \"type\": \"string\",\n                \"description\": \"业务员工号\"\n              },\n              \"bnfer\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"birthday\": {\n                    \"type\": \"string\",\n                    \"format\": \"date\"\n                  },\n                  \"certNo\": {\n                    \"type\": \"string\"\n                  },\n                  \"certType\": {\n                    \"type\": \"string\"\n                  },\n                  \"name\": {\n                    \"type\": \"string\"\n                  },\n                  \"sex\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"title\": \"UserBo\",\n                \"$$ref\": \"#/definitions/UserBo\"\n              },\n              \"buyer\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"birthday\": {\n                    \"type\": \"string\",\n                    \"format\": \"date\"\n                  },\n                  \"certNo\": {\n                    \"type\": \"string\"\n                  },\n                  \"certType\": {\n                    \"type\": \"string\"\n                  },\n                  \"name\": {\n                    \"type\": \"string\"\n                  },\n                  \"sex\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"title\": \"UserBo\",\n                \"$$ref\": \"#/definitions/UserBo\"\n              },\n              \"effBeginDate\": {\n                \"type\": \"string\",\n                \"format\": \"date\",\n                \"description\": \"权益有效起期\"\n              },\n              \"effEndDate\": {\n                \"type\": \"string\",\n                \"format\": \"date\",\n                \"description\": \"权益有效止期\"\n              },\n              \"generateType\": {\n                \"type\": \"string\",\n                \"description\": \"权益生成方式\"\n              },\n              \"needActivate\": {\n                \"type\": \"boolean\",\n                \"description\": \"（是/否）需要激活\"\n              },\n              \"onlyPersonalUse\": {\n                \"type\": \"boolean\",\n                \"description\": \"（是/否）仅限本人使用\"\n              },\n              \"owner\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"birthday\": {\n                    \"type\": \"string\",\n                    \"format\": \"date\"\n                  },\n                  \"certNo\": {\n                    \"type\": \"string\"\n                  },\n                  \"certType\": {\n                    \"type\": \"string\"\n                  },\n                  \"name\": {\n                    \"type\": \"string\"\n                  },\n                  \"sex\": {\n                    \"type\": \"string\"\n                  }\n                },\n                \"title\": \"UserBo\",\n                \"$$ref\": \"#/definitions/UserBo\"\n              },\n              \"productCode\": {\n                \"type\": \"string\",\n                \"description\": \"产品code\"\n              },\n              \"productName\": {\n                \"type\": \"string\",\n                \"description\": \"产品名称\"\n              },\n              \"productStatus\": {\n                \"type\": \"string\",\n                \"description\": \"产品状态（待售，在售，停售）\"\n              },\n              \"rightsCreateTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"权益创建时间\"\n              },\n              \"rightsDutyVos\": {\n                \"type\": \"array\",\n                \"description\": \"权益责任列表\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"activateTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"权益激活时间\"\n                    },\n                    \"agentNo\": {\n                      \"type\": \"string\",\n                      \"description\": \"业务员工号\"\n                    },\n                    \"bnfer\": {\n                      \"type\": \"object\",\n                      \"properties\": {\n                        \"birthday\": {\n                          \"type\": \"string\",\n                          \"format\": \"date\"\n                        },\n                        \"certNo\": {\n                          \"type\": \"string\"\n                        },\n                        \"certType\": {\n                          \"type\": \"string\"\n                        },\n                        \"name\": {\n                          \"type\": \"string\"\n                        },\n                        \"sex\": {\n                          \"type\": \"string\"\n                        }\n                      },\n                      \"title\": \"UserBo\",\n                      \"$$ref\": \"#/definitions/UserBo\"\n                    },\n                    \"branchCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"分公司码\"\n                    },\n                    \"canCancelOrder\": {\n                      \"type\": \"boolean\",\n                      \"description\": \"是否可以取消预约\"\n                    },\n                    \"createTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"权益责任落库时间\"\n                    },\n                    \"effBeginDate\": {\n                      \"type\": \"string\",\n                      \"format\": \"date\",\n                      \"description\": \"责任有效起期\"\n                    },\n                    \"effEndDate\": {\n                      \"type\": \"string\",\n                      \"format\": \"date\",\n                      \"description\": \"责任有效止期\"\n                    },\n                    \"needReview\": {\n                      \"type\": \"boolean\",\n                      \"description\": \"（是/否）需要预约审核\"\n                    },\n                    \"needWaiting\": {\n                      \"type\": \"boolean\",\n                      \"description\": \"（是/否）有等待期\"\n                    },\n                    \"productDutyCode\": {\n                      \"type\": \"string\",\n                      \"description\": \"产品责任号\"\n                    },\n                    \"productDutyName\": {\n                      \"type\": \"string\",\n                      \"description\": \"产品责任名称\"\n                    },\n                    \"remainAmount\": {\n                      \"type\": \"number\",\n                      \"description\": \"剩余金额\"\n                    },\n                    \"remainNum\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int32\",\n                      \"description\": \"剩余次数\"\n                    },\n                    \"rightsDutyNickName\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益责任名称\"\n                    },\n                    \"rightsDutyNo\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益责任号\"\n                    },\n                    \"rightsNo\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益号\"\n                    },\n                    \"scene\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益责任场景码\"\n                    },\n                    \"status\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益责任状态\",\n                      \"enum\": [\n                        \"RightsStateEnum{state='EXPIRE'}\",\n                        \"RightsStateEnum{state='INVALID'}\",\n                        \"RightsStateEnum{state='IN_EFFECTIVE'}\",\n                        \"RightsStateEnum{state='USED'}\",\n                        \"RightsStateEnum{state='VALID'}\",\n                        \"RightsStateEnum{state='CONSUMED'}\"\n                      ]\n                    },\n                    \"supplierList\": {\n                      \"type\": \"array\",\n                      \"description\": \"供应商列表\",\n                      \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"address\": {\n                            \"type\": \"string\",\n                            \"description\": \"服务地址\"\n                          },\n                          \"contactName\": {\n                            \"type\": \"string\",\n                            \"description\": \"联系人姓名\"\n                          },\n                          \"contactPhone\": {\n                            \"type\": \"string\",\n                            \"description\": \"联系电话\"\n                          },\n                          \"orgCode\": {\n                            \"type\": \"string\",\n                            \"description\": \"社会信用代码\"\n                          },\n                          \"supplierId\": {\n                            \"type\": \"string\",\n                            \"description\": \"供应商id\"\n                          },\n                          \"supplierName\": {\n                            \"type\": \"string\",\n                            \"description\": \"供应商名称\"\n                          }\n                        },\n                        \"title\": \"SupplierVo\",\n                        \"$$ref\": \"#/definitions/SupplierVo\"\n                      }\n                    },\n                    \"template\": {\n                      \"type\": \"string\",\n                      \"description\": \"权益责任模板\"\n                    },\n                    \"type\": {\n                      \"type\": \"string\",\n                      \"description\": \"服务项类型\"\n                    },\n                    \"waitingToDate\": {\n                      \"type\": \"string\",\n                      \"format\": \"date\",\n                      \"description\": \"等待止期\"\n                    }\n                  },\n                  \"title\": \"RightsDutyVo\",\n                  \"$$ref\": \"#/definitions/RightsDutyVo\"\n                }\n              },\n              \"rightsNickName\": {\n                \"type\": \"string\",\n                \"description\": \"权益个性化名称\"\n              },\n              \"rightsNo\": {\n                \"type\": \"string\",\n                \"description\": \"权益号\"\n              },\n              \"rightsStatus\": {\n                \"type\": \"string\",\n                \"description\": \"权益状态（已购买、已激活、已预约、已使用、已过期）\",\n                \"enum\": [\n                  \"RightsStateEnum{state='EXPIRE'}\",\n                  \"RightsStateEnum{state='INVALID'}\",\n                  \"RightsStateEnum{state='VALID'}\",\n                  \"RightsStateEnum{state='CONSUMED'}\",\n                  \"RightsStateEnum{state='IN_EFFECTIVE'}\",\n                  \"RightsStateEnum{state='USED'}\"\n                ]\n              },\n              \"scene\": {\n                \"type\": \"string\",\n                \"description\": \"权益场景吗\"\n              },\n              \"sourceBillNo\": {\n                \"type\": \"string\",\n                \"description\": \"来源系统交易号（第三方系统订单号/系统内部订单号\"\n              },\n              \"systemSource\": {\n                \"type\": \"string\",\n                \"description\": \"系统来源\"\n              },\n              \"template\": {\n                \"type\": \"string\",\n                \"description\": \"权益模板\"\n              }\n            },\n            \"title\": \"CommonRightsVo\",\n            \"$$ref\": \"#/definitions/CommonRightsVo\"\n          }\n        }\n      },\n      \"title\": \"AccountRightsVo\",\n      \"$$ref\": \"#/definitions/AccountRightsVo\"\n    },\n    \"errorMessage\": {\n      \"type\": \"string\",\n      \"description\": \"响应失败原因\"\n    },\n    \"success\": {\n      \"type\": \"boolean\",\n      \"description\": \"响应结果\"\n    }\n  },\n  \"title\": \"ViewBean«AccountRightsVo»\",\n  \"$$ref\": \"#/definitions/ViewBean«AccountRightsVo»\"\n}",
+        "project_id": 264,
+        "catid": 708,
+        "uid": 391,
+        "add_time": 1624439817,
+        "up_time": 1624439817,
+        "__v": 0
       }
     ]
   },
   {
-    "index": 3,
-    "name": "模板管理",
-    "desc": null,
-    "add_time": 1658129725,
-    "up_time": 1658129725,
+    "index": 0,
+    "name": "probe-alive-controller",
+    "desc": "Probe Alive Controller",
+    "add_time": 1624439817,
+    "up_time": 1624439817,
     "list": [
       {
         "query_path": {
-          "path": "/basic-store-check/template/list",
+          "path": "/probe/alive",
           "params": []
         },
         "edit_uid": 0,
         "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "probe-alive-controller"
+        ],
+        "_id": 2982,
+        "method": "GET",
+        "title": "探活接口",
+        "path": "/probe/alive",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"响应状态码\"\n    },\n    \"data\": {\n      \"type\": \"boolean\",\n      \"description\": \"响应数据\"\n    },\n    \"errorMessage\": {\n      \"type\": \"string\",\n      \"description\": \"响应失败原因\"\n    },\n    \"success\": {\n      \"type\": \"boolean\",\n      \"description\": \"响应结果\"\n    }\n  },\n  \"title\": \"ViewBean«boolean»\",\n  \"$$ref\": \"#/definitions/ViewBean«boolean»\"\n}",
+        "project_id": 264,
+        "catid": 716,
+        "uid": 391,
+        "add_time": 1624439817,
+        "up_time": 1624439817,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "权益相关接口",
+    "desc": "权益相关接口",
+    "add_time": 1666682736,
+    "up_time": 1666682736,
+    "list": [
+      {
+        "query_path": {
+          "path": "/rights/exercise/jump",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 14639,
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"string\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
+        "res_body_type": "json",
+        "title": "健投行权跳转单点登陆接口",
+        "path": "/rights/exercise/jump",
+        "catid": 2558,
+        "markdown": "",
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0e91c3fadc59a48109",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "641a6a0e91c3fa5d45a4810a",
+            "name": "umcToken",
+            "value": "",
+            "desc": "参数"
+          }
+        ],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1666682737,
+        "up_time": 1679452686,
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/rights/query/detail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 14634,
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"owner\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"buyer\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}}},\"rightsNo\":{\"type\":\"string\"},\"pinCode\":{\"type\":\"string\"},\"accountNo\":{\"type\":\"string\"},\"accountType\":{\"type\":\"string\"},\"rightsNickName\":{\"type\":\"string\"},\"effBeginDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"effEndDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"rightsStatus\":{\"type\":\"string\",\"enum\":[\"EXPIRE\",\"INVALID\",\"VALID\",\"TO_BE_VALID\",\"CONSUMED\",\"IN_EFFECTIVE\",\"IN_USE\"],\"enumDesc\":\"EXPIRE :EXPIRE 过期\\nINVALID :INVALID 无效\\nVALID :VALID 有效\\nTO_BE_VALID :TO_BE_VALID 待生效\\nCONSUMED :CONSUMED 已核销\\nIN_EFFECTIVE :IN_EFFECTIVE 未生效\\nIN_USE :IN_USE 使用中\",\"mock\":{\"mock\":\"@pick([\\\"EXPIRE\\\",\\\"INVALID\\\",\\\"VALID\\\",\\\"TO_BE_VALID\\\",\\\"CONSUMED\\\",\\\"IN_EFFECTIVE\\\",\\\"IN_USE\\\"])\"}},\"letterStatus\":{\"type\":\"string\",\"description\":\"确认函签署状态\"},\"sourceBillNo\":{\"type\":\"string\"},\"agentNo\":{\"type\":\"string\"},\"activateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"systemSource\":{\"type\":\"string\"},\"generateType\":{\"type\":\"string\"},\"rightsCreateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"productCode\":{\"type\":\"string\"},\"productName\":{\"type\":\"string\"},\"productStatus\":{\"type\":\"string\"},\"needActivate\":{\"type\":\"boolean\"},\"onlyPersonalUse\":{\"type\":\"boolean\"},\"template\":{\"type\":\"string\"},\"scene\":{\"type\":\"string\"},\"rightsDutyVos\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}}},\"owner\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"rightsDutyNo\":{\"type\":\"string\"},\"productCode\":{\"type\":\"string\"},\"policyNo\":{\"type\":\"string\"},\"rightsNickName\":{\"type\":\"string\"},\"rightsDutyNickName\":{\"type\":\"string\"},\"rightsNo\":{\"type\":\"string\"},\"remainAmount\":{\"type\":\"number\"},\"consumeType\":{\"type\":\"string\"},\"remainNum\":{\"type\":\"integer\"},\"agentNo\":{\"type\":\"string\"},\"branchCode\":{\"type\":\"string\"},\"effBeginDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"effEndDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"waitingToDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"activateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"status\":{\"type\":\"string\",\"enum\":[\"EXPIRE\",\"INVALID\",\"IN_EFFECTIVE\",\"TO_BE_VALID\",\"IN_USE\",\"VALID\",\"CONSUMED\"],\"enumDesc\":\"EXPIRE :EXPIRE 过期\\nINVALID :INVALID 无效\\nIN_EFFECTIVE :IN_EFFECTIVE 未生效\\nTO_BE_VALID :TO_BE_VALID 待生效\\nIN_USE :IN_USE 使用中\\nVALID :VALID 有效\\nCONSUMED :CONSUMED 已核销\",\"mock\":{\"mock\":\"@pick([\\\"EXPIRE\\\",\\\"INVALID\\\",\\\"IN_EFFECTIVE\\\",\\\"TO_BE_VALID\\\",\\\"IN_USE\\\",\\\"VALID\\\",\\\"CONSUMED\\\"])\"}},\"createTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"productDutyCode\":{\"type\":\"string\"},\"productDutyName\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"needWaiting\":{\"type\":\"boolean\"},\"canCancelOrder\":{\"type\":\"boolean\"},\"needReview\":{\"type\":\"boolean\"},\"template\":{\"type\":\"string\"},\"scene\":{\"type\":\"string\"},\"supplierList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"supplierId\":{\"type\":\"string\"},\"supplierName\":{\"type\":\"string\"},\"orgCode\":{\"type\":\"string\"},\"address\":{\"type\":\"string\"}}}},\"mainSupplierId\":{\"type\":\"string\"},\"rightsIcon\":{\"type\":\"string\"},\"rightsHomeTemplate\":{\"type\":\"string\"},\"rightsDetailTemplate\":{\"type\":\"string\"},\"anonymityFlag\":{\"type\":\"string\"},\"anonymityType\":{\"type\":\"string\"},\"anonymityNo\":{\"type\":\"string\"},\"businessCode\":{\"type\":\"string\"}}}}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
+        "res_body_type": "json",
+        "title": "权益详情查询接口",
+        "path": "/rights/query/detail",
+        "catid": 2558,
+        "markdown": "",
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0e91c3fa2504a48107",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "641a6a0e91c3fa9ba9a48108",
+            "name": "rightsNo",
+            "value": "",
+            "desc": "权益号"
+          }
+        ],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1666682737,
+        "up_time": 1679452686,
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/rights/query/duty/detail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 2991,
+        "method": "POST",
+        "title": "权益责任详情展示接口",
+        "path": "/rights/query/duty/detail",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0d91c3faada4a48103",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "641a6a0d91c3fa4474a48104",
+            "name": "rightsDutyNo",
+            "value": "",
+            "desc": "参数"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}}},\"owner\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"rightsDutyNo\":{\"type\":\"string\"},\"productCode\":{\"type\":\"string\"},\"policyNo\":{\"type\":\"string\"},\"rightsNickName\":{\"type\":\"string\"},\"rightsDutyNickName\":{\"type\":\"string\"},\"rightsNo\":{\"type\":\"string\"},\"remainAmount\":{\"type\":\"number\"},\"consumeType\":{\"type\":\"string\"},\"remainNum\":{\"type\":\"integer\"},\"agentNo\":{\"type\":\"string\"},\"branchCode\":{\"type\":\"string\"},\"effBeginDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"effEndDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"waitingToDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"activateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"status\":{\"type\":\"string\",\"enum\":[\"EXPIRE\",\"INVALID\",\"IN_EFFECTIVE\",\"TO_BE_VALID\",\"IN_USE\",\"VALID\",\"CONSUMED\"],\"enumDesc\":\"EXPIRE :EXPIRE 过期\\nINVALID :INVALID 无效\\nIN_EFFECTIVE :IN_EFFECTIVE 未生效\\nTO_BE_VALID :TO_BE_VALID 待生效\\nIN_USE :IN_USE 使用中\\nVALID :VALID 有效\\nCONSUMED :CONSUMED 已核销\",\"mock\":{\"mock\":\"@pick([\\\"EXPIRE\\\",\\\"INVALID\\\",\\\"IN_EFFECTIVE\\\",\\\"TO_BE_VALID\\\",\\\"IN_USE\\\",\\\"VALID\\\",\\\"CONSUMED\\\"])\"}},\"createTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"productDutyCode\":{\"type\":\"string\"},\"productDutyName\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"needWaiting\":{\"type\":\"boolean\"},\"canCancelOrder\":{\"type\":\"boolean\"},\"needReview\":{\"type\":\"boolean\"},\"template\":{\"type\":\"string\"},\"scene\":{\"type\":\"string\"},\"supplierList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"supplierId\":{\"type\":\"string\"},\"supplierName\":{\"type\":\"string\"},\"orgCode\":{\"type\":\"string\"},\"address\":{\"type\":\"string\"}}}},\"mainSupplierId\":{\"type\":\"string\"},\"rightsIcon\":{\"type\":\"string\"},\"rightsHomeTemplate\":{\"type\":\"string\"},\"rightsDetailTemplate\":{\"type\":\"string\"},\"anonymityFlag\":{\"type\":\"string\"},\"anonymityType\":{\"type\":\"string\"},\"anonymityNo\":{\"type\":\"string\"},\"businessCode\":{\"type\":\"string\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2558,
+        "uid": 391,
+        "add_time": 1624439818,
+        "up_time": 1679452685,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/rights/get",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
         "index": 0,
         "tag": [],
-        "_id": 21207,
-        "method": "GET",
-        "catid": 2395,
-        "title": "模板列表下拉查询（分页）",
-        "path": "/basic-store-check/template/list",
-        "project_id": 882,
-        "req_params": [],
+        "_id": 14644,
+        "req_body_type": "json",
         "res_body_type": "json",
-        "req_query": [
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c42",
-            "name": "name",
-            "desc": "模板名称：模糊查询"
-          },
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c41",
-            "name": "status",
-            "example": "",
-            "desc": "模板状态：0 启用 1 停用"
-          },
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c40",
-            "name": "templateType",
-            "example": "",
-            "desc": "模板类型：1 固定 2 自定义"
-          },
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c3f",
-            "name": "current",
-            "example": "",
-            "desc": "分页参数：当前页：默认0"
-          },
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c3e",
-            "name": "pageSize",
-            "example": "",
-            "desc": "分页参数：分页大小：默认10"
-          },
-          {
-            "required": "0",
-            "_id": "62fe222bcf1c790f72970c3d",
-            "name": "filterEmpty",
-            "example": "",
-            "desc": "Boolean值  true：过滤空评分项的模板，默认为false"
-          }
-        ],
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号码\"},\"pinCode\":{\"type\":\"string\",\"description\":\"卡号\"},\"pinPassWord\":{\"type\":\"string\",\"description\":\"卡密\"},\"phone\":{\"type\":\"string\",\"description\":\"手机号码\"},\"productCode\":{\"type\":\"string\",\"description\":\"产品编码\"},\"verificationCode\":{\"type\":\"string\",\"description\":\"验证码\"},\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"idType\":{\"type\":\"string\"},\"idNo\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\"]},\"description\":\"使用人\"}},\"required\":[\"name\",\"idNo\",\"pinCode\",\"pinPassWord\",\"phone\",\"productCode\",\"verificationCode\"],\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"参数\"}",
+        "title": "环球权益领取",
+        "path": "/rights/get",
+        "catid": 2558,
+        "markdown": "",
         "req_headers": [
           {
             "required": "1",
-            "_id": "62fe222bcf1c790f72970c43",
-            "name": "Cookie",
-            "value": ""
+            "_id": "641a6a0e91c3fa2813a4810b",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
           }
         ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"string\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
         "req_body_form": [],
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"string\",\"description\":\"总数\"},\"rows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"}},\"required\":[\"templateId\",\"name\"]}}},\"required\":[\"total\",\"rows\"]}}}",
-        "uid": 609,
-        "add_time": 1658132061,
-        "up_time": 1660822059,
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1666682737,
+        "up_time": 1679452686,
         "__v": 0
       },
       {
         "query_path": {
-          "path": "/basic-store-check/template/page",
+          "path": "/rights/query/rights-use/url",
           "params": []
         },
         "edit_uid": 0,
-        "status": "undone",
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
         "index": 0,
         "tag": [],
-        "_id": 21342,
-        "method": "GET",
-        "catid": 2395,
-        "title": "模板列表查询（分页）",
-        "path": "/basic-store-check/template/page",
-        "project_id": 882,
+        "_id": 3009,
+        "method": "POST",
+        "title": "获取使用地址接口",
+        "path": "/rights/query/rights-use/url",
         "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0d91c3fa1b25a48105",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
         "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"string\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2558,
+        "uid": 391,
+        "add_time": 1624439818,
+        "up_time": 1679452685,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"rightsDutyNo\":{\"type\":\"string\"},\"productDutyCode\":{\"type\":\"string\"},\"productCode\":{\"type\":\"string\"},\"supplierId\":{\"type\":\"string\"},\"action\":{\"type\":\"string\"},\"transNo\":{\"type\":\"string\"},\"appendInfo\":{\"type\":\"string\"}},\"required\":[\"rightsDutyNo\",\"productDutyCode\",\"supplierId\"],\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"参数\"}"
+      },
+      {
+        "query_path": {
+          "path": "/rights/letter/no-sign/number",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 16504,
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"productCodes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"产品编码列表\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"查询参数\"}",
+        "title": "获取客户未签署确认函权益数量",
+        "path": "/rights/letter/no-sign/number",
+        "catid": 2558,
+        "markdown": "",
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0e91c3fa2ffca4810c",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
+          }
+        ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"integer\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
+        "req_body_form": [],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1679452686,
+        "up_time": 1679452686,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/rights/query/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 3000,
+        "method": "POST",
+        "title": "首页权益及责任列表展示接口",
+        "path": "/rights/query/list",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0d91c3fa7573a48102",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"accountInfoVos\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"accountNo\":{\"type\":\"string\"},\"accountName\":{\"type\":\"string\"},\"totalBalance\":{\"type\":\"number\"},\"availableBalance\":{\"type\":\"number\"},\"freezeBalance\":{\"type\":\"number\"},\"principal\":{\"type\":\"number\"},\"interest\":{\"type\":\"number\"}}}},\"commonRightsList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"owner\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"buyer\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}}},\"rightsNo\":{\"type\":\"string\"},\"pinCode\":{\"type\":\"string\"},\"accountNo\":{\"type\":\"string\"},\"accountType\":{\"type\":\"string\"},\"rightsNickName\":{\"type\":\"string\"},\"effBeginDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"effEndDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"rightsStatus\":{\"type\":\"string\",\"enum\":[\"EXPIRE\",\"INVALID\",\"VALID\",\"TO_BE_VALID\",\"CONSUMED\",\"IN_EFFECTIVE\",\"IN_USE\"],\"enumDesc\":\"EXPIRE :EXPIRE 过期\\nINVALID :INVALID 无效\\nVALID :VALID 有效\\nTO_BE_VALID :TO_BE_VALID 待生效\\nCONSUMED :CONSUMED 已核销\\nIN_EFFECTIVE :IN_EFFECTIVE 未生效\\nIN_USE :IN_USE 使用中\",\"mock\":{\"mock\":\"@pick([\\\"EXPIRE\\\",\\\"INVALID\\\",\\\"VALID\\\",\\\"TO_BE_VALID\\\",\\\"CONSUMED\\\",\\\"IN_EFFECTIVE\\\",\\\"IN_USE\\\"])\"}},\"letterStatus\":{\"type\":\"string\",\"description\":\"确认函签署状态\"},\"sourceBillNo\":{\"type\":\"string\"},\"agentNo\":{\"type\":\"string\"},\"activateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"systemSource\":{\"type\":\"string\"},\"generateType\":{\"type\":\"string\"},\"rightsCreateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"productCode\":{\"type\":\"string\"},\"productName\":{\"type\":\"string\"},\"productStatus\":{\"type\":\"string\"},\"needActivate\":{\"type\":\"boolean\"},\"onlyPersonalUse\":{\"type\":\"boolean\"},\"template\":{\"type\":\"string\"},\"scene\":{\"type\":\"string\"},\"rightsDutyVos\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"bnfers\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}}},\"owner\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"certType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"certNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"sex\":{\"type\":\"string\"},\"birthday\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"mobile\":{\"type\":\"string\"}}},\"rightsDutyNo\":{\"type\":\"string\"},\"productCode\":{\"type\":\"string\"},\"policyNo\":{\"type\":\"string\"},\"rightsNickName\":{\"type\":\"string\"},\"rightsDutyNickName\":{\"type\":\"string\"},\"rightsNo\":{\"type\":\"string\"},\"remainAmount\":{\"type\":\"number\"},\"consumeType\":{\"type\":\"string\"},\"remainNum\":{\"type\":\"integer\"},\"agentNo\":{\"type\":\"string\"},\"branchCode\":{\"type\":\"string\"},\"effBeginDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"effEndDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"waitingToDate\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"activateTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"status\":{\"type\":\"string\",\"enum\":[\"EXPIRE\",\"INVALID\",\"IN_EFFECTIVE\",\"TO_BE_VALID\",\"IN_USE\",\"VALID\",\"CONSUMED\"],\"enumDesc\":\"EXPIRE :EXPIRE 过期\\nINVALID :INVALID 无效\\nIN_EFFECTIVE :IN_EFFECTIVE 未生效\\nTO_BE_VALID :TO_BE_VALID 待生效\\nIN_USE :IN_USE 使用中\\nVALID :VALID 有效\\nCONSUMED :CONSUMED 已核销\",\"mock\":{\"mock\":\"@pick([\\\"EXPIRE\\\",\\\"INVALID\\\",\\\"IN_EFFECTIVE\\\",\\\"TO_BE_VALID\\\",\\\"IN_USE\\\",\\\"VALID\\\",\\\"CONSUMED\\\"])\"}},\"createTime\":{\"type\":\"string\",\"mock\":{\"mock\":\"@datetime\"}},\"productDutyCode\":{\"type\":\"string\"},\"productDutyName\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"needWaiting\":{\"type\":\"boolean\"},\"canCancelOrder\":{\"type\":\"boolean\"},\"needReview\":{\"type\":\"boolean\"},\"template\":{\"type\":\"string\"},\"scene\":{\"type\":\"string\"},\"supplierList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"supplierId\":{\"type\":\"string\"},\"supplierName\":{\"type\":\"string\"},\"orgCode\":{\"type\":\"string\"},\"address\":{\"type\":\"string\"}}}},\"mainSupplierId\":{\"type\":\"string\"},\"rightsIcon\":{\"type\":\"string\"},\"rightsHomeTemplate\":{\"type\":\"string\"},\"rightsDetailTemplate\":{\"type\":\"string\"},\"anonymityFlag\":{\"type\":\"string\"},\"anonymityType\":{\"type\":\"string\"},\"anonymityNo\":{\"type\":\"string\"},\"businessCode\":{\"type\":\"string\"}}}}}}}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2558,
+        "uid": 391,
+        "add_time": 1624439818,
+        "up_time": 1679452685,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"scene\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"productCodes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"productDutyCodes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"参数\"}"
+      },
+      {
+        "query_path": {
+          "path": "/rights/account/list",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 14629,
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"scene\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"productCodes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"productDutyCodes\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"参数\"}",
+        "title": "首页查询账户信息接口",
+        "path": "/rights/account/list",
+        "catid": 2558,
+        "markdown": "",
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "641a6a0d91c3fafc15a48106",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
+          }
+        ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"accountNo\":{\"type\":\"string\"},\"accountName\":{\"type\":\"string\"},\"totalBalance\":{\"type\":\"number\"},\"availableBalance\":{\"type\":\"number\"},\"freezeBalance\":{\"type\":\"number\"},\"principal\":{\"type\":\"number\"},\"interest\":{\"type\":\"number\"}}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
+        "req_body_form": [],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1666682737,
+        "up_time": 1679452685,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "登录相关接口",
+    "desc": "登录相关接口",
+    "add_time": 1667971556,
+    "up_time": 1667971556,
+    "list": [
+      {
+        "query_path": {
+          "path": "/login/in/tempToken",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 2964,
+        "method": "GET",
+        "title": "临时令牌登录",
+        "path": "/login/in/tempToken",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
         "req_query": [
           {
             "required": "0",
-            "_id": "62f0a805cf1c790f729705da",
-            "name": "templateId",
-            "desc": "模板id（支持多个,以\",\"分隔）"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d9",
-            "name": "name",
-            "example": "",
-            "desc": "模板名称，模糊匹配"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d8",
-            "name": "scoreModel",
-            "example": "",
-            "desc": "打分模式：1 评分模式 2 扣分模式  （支持多个,以\",\"分隔）"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d7",
-            "name": "templateType",
-            "example": "",
-            "desc": "模板类型：1 固定 2 自定义"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d6",
-            "name": "status",
-            "example": "",
-            "desc": "模板状态：0 启用 1 停用"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d5",
-            "name": "current",
-            "example": "",
-            "desc": "分页参数：当前页 默认0"
-          },
-          {
-            "required": "0",
-            "_id": "62f0a805cf1c790f729705d4",
-            "name": "pageSize",
-            "example": "",
-            "desc": "分页参数：分页大小 默认10"
+            "_id": "636b40ce91c3fa6e51a47010",
+            "name": "tempToken",
+            "value": "",
+            "desc": "临时令牌"
           }
         ],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "62f0a805cf1c790f729705db",
-            "name": "Cookie",
-            "value": ""
-          }
-        ],
-        "req_body_form": [],
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"number\",\"description\":\"总数\"},\"rows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"string\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"scoreTypeNum\":{\"type\":\"number\",\"description\":\"评分项分类数量\"},\"scoreNum\":{\"type\":\"number\",\"description\":\"评分项数量\"},\"score\":{\"type\":\"number\",\"description\":\"模板分数\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"}},\"required\":[\"templateId\",\"status\",\"score\",\"scoreTypeNum\",\"scoreModel\",\"name\",\"scoreNum\"]}}},\"required\":[\"total\",\"rows\"]}}}",
-        "uid": 609,
-        "add_time": 1658310873,
-        "up_time": 1659938821,
-        "__v": 0
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"string\",\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2593,
+        "uid": 391,
+        "add_time": 1624439817,
+        "up_time": 1667973326,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": ""
       },
       {
         "query_path": {
-          "path": "/basic-store-check/template/detail",
+          "path": "/login/in/false",
           "params": []
         },
         "edit_uid": 0,
-        "status": "undone",
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
-        "index": 3,
+        "index": 0,
         "tag": [],
-        "_id": 21217,
-        "method": "GET",
-        "catid": 2395,
-        "title": "模板详情",
-        "path": "/basic-store-check/template/detail",
-        "project_id": 882,
-        "req_params": [],
+        "_id": 14799,
+        "req_body_type": "json",
         "res_body_type": "json",
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"phone\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"idType\":{\"type\":\"string\"},\"idNo\":{\"type\":\"string\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"参数\"}",
+        "title": "客户端伪登陆",
+        "path": "/login/in/false",
+        "catid": 2593,
+        "markdown": "",
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "636b40ce91c3fa09b7a47014",
+            "name": "Content-Type",
+            "value": "application/json",
+            "example": "application/json"
+          }
+        ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"userInfo\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"sex\":{\"type\":\"string\",\"description\":\"性别\"},\"birthday\":{\"type\":\"string\",\"description\":\"生日\"},\"mobileNo\":{\"type\":\"string\",\"description\":\"手机号\"},\"openId\":{\"type\":\"string\",\"description\":\"openid\"},\"customerId\":{\"type\":\"string\",\"description\":\"客户id\"},\"token\":{\"type\":\"string\",\"description\":\"token\"}},\"description\":\"用户信息\"},\"jwtToken\":{\"type\":\"string\",\"description\":\"jwt\"},\"jumpExtraInfo\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"object\",\"properties\":{}}},\"description\":\"扩展信息\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
+        "req_body_form": [],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1667971556,
+        "up_time": 1667973326,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/login/in/umcToken",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 2973,
+        "method": "POST",
+        "title": "用户令牌登录",
+        "path": "/login/in/umcToken",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "636b40ce91c3fa7726a4700d",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "636b40ce91c3fa41c4a4700f",
+            "name": "umcToken",
+            "value": "",
+            "desc": "令牌"
+          },
+          {
+            "required": "0",
+            "_id": "636b40ce91c3fadbcca4700e",
+            "name": "openId",
+            "value": "",
+            "desc": "微信ID"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"userInfo\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"sex\":{\"type\":\"string\",\"description\":\"性别\"},\"birthday\":{\"type\":\"string\",\"description\":\"生日\"},\"mobileNo\":{\"type\":\"string\",\"description\":\"手机号\"},\"openId\":{\"type\":\"string\",\"description\":\"openid\"},\"customerId\":{\"type\":\"string\",\"description\":\"客户id\"},\"token\":{\"type\":\"string\",\"description\":\"token\"}},\"description\":\"用户信息\"},\"jwtToken\":{\"type\":\"string\",\"description\":\"jwt\"},\"jumpExtraInfo\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"object\",\"properties\":{}}},\"description\":\"扩展信息\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2593,
+        "uid": 391,
+        "add_time": 1624439817,
+        "up_time": 1667973326,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/login/in/get/userInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 2955,
+        "method": "POST",
+        "title": "获取正式TOKEN",
+        "path": "/login/in/get/userInfo",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "636b40ce91c3faaa2ca47011",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
         "req_query": [
           {
             "required": "1",
-            "_id": "62ecc1cbcf1c790f729703cb",
-            "name": "templateId",
-            "desc": "模板id"
-          }
-        ],
-        "req_headers": [
+            "_id": "636b40ce91c3fa3613a47013",
+            "name": "tempToken",
+            "value": "",
+            "desc": "临时令牌"
+          },
           {
             "required": "1",
-            "_id": "62ecc1cbcf1c790f729703cc",
-            "name": "Cookie",
-            "value": ""
+            "_id": "636b40ce91c3fa2309a47012",
+            "name": "openId",
+            "value": "",
+            "desc": "微信ID"
           }
         ],
-        "req_body_form": [],
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"totalScore\":{\"type\":\"number\",\"description\":\"总分数\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型：1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"},\"scoreCodeList\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"评分项编码集合\"},\"scoreList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"scoreType\":{\"type\":\"number\",\"description\":\"评分项类型\"},\"scoreTypeName\":{\"type\":\"string\",\"description\":\"评分项类型名称\"},\"scoreItemList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\",\"description\":\"id\"},\"content\":{\"type\":\"string\",\"description\":\"评分项内容\"},\"score\":{\"type\":\"number\",\"description\":\"分值\"},\"amendType\":{\"type\":\"number\",\"description\":\"整改是否需传图0 是 1 否\"},\"pollingType\":{\"type\":\"number\",\"description\":\"巡检是否需传图0 是 1 否\"},\"imagesLinkList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"fileType\":{\"type\":\"string\",\"description\":\"文件类型（0图片 1word 2ppt 3zip）\"},\"fileOriginalName\":{\"type\":\"string\",\"description\":\"文件原名（带后缀）\"},\"field_3\":{\"type\":\"string\",\"description\":\"地址\"}},\"required\":[\"fileType\",\"fileOriginalName\",\"field_3\"]},\"description\":\"评分项标准图片链接集合\"}},\"required\":[\"id\",\"score\",\"content\",\"imagesLinkList\",\"amendType\",\"pollingType\"]},\"description\":\"评分项集合\"}},\"required\":[\"scoreType\",\"scoreTypeName\",\"scoreItemList\"]},\"description\":\"评分项集合\"}},\"required\":[\"templateId\",\"conclusionType\",\"templateType\",\"passValue\",\"status\",\"scoreModel\",\"name\",\"scoreList\",\"totalScore\",\"scoreCodeList\"]}}}",
-        "uid": 609,
-        "add_time": 1658136472,
-        "up_time": 1659683275,
-        "__v": 0
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"userInfo\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"sex\":{\"type\":\"string\",\"description\":\"性别\"},\"birthday\":{\"type\":\"string\",\"description\":\"生日\"},\"mobileNo\":{\"type\":\"string\",\"description\":\"手机号\"},\"openId\":{\"type\":\"string\",\"description\":\"openid\"},\"customerId\":{\"type\":\"string\",\"description\":\"客户id\"},\"token\":{\"type\":\"string\",\"description\":\"token\"}},\"description\":\"用户信息\"},\"jwtToken\":{\"type\":\"string\",\"description\":\"jwt\"},\"jumpExtraInfo\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"object\",\"properties\":{}}},\"description\":\"扩展信息\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "project_id": 264,
+        "catid": 2593,
+        "uid": 391,
+        "add_time": 1624439817,
+        "up_time": 1667973326,
+        "__v": 0,
+        "desc": "<p></p>",
+        "markdown": ""
       },
       {
         "query_path": {
-          "path": "/basic-store-check/template/addOrUpdate",
+          "path": "/login/auth/rights-no",
           "params": []
         },
         "edit_uid": 0,
-        "status": "undone",
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
-        "index": 4,
+        "index": 0,
         "tag": [],
-        "_id": 21152,
-        "method": "POST",
-        "catid": 2395,
-        "title": "新增或修改模板 （操作模板评分项）",
-        "path": "/basic-store-check/template/addOrUpdate",
-        "project_id": 882,
-        "req_params": [],
+        "_id": 14804,
+        "req_body_type": "json",
         "res_body_type": "json",
-        "req_query": [],
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"rightsNo\":{\"type\":\"string\",\"description\":\"权益号码\"}},\"required\":[\"rightsNo\"],\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"权益参数\"}",
+        "title": "通过社区权益认证登录",
+        "path": "/login/auth/rights-no",
+        "catid": 2593,
+        "markdown": "",
         "req_headers": [
           {
             "required": "1",
-            "_id": "62ff3f3bcf1c790f72970c65",
+            "_id": "636b40cf91c3fa3bbfa47015",
             "name": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "required": "1",
-            "_id": "62ff3f3bcf1c790f72970c64",
-            "name": "Cookie",
-            "example": "",
-            "desc": ""
+            "value": "application/json",
+            "example": "application/json"
           }
         ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"userInfo\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"姓名\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"sex\":{\"type\":\"string\",\"description\":\"性别\"},\"birthday\":{\"type\":\"string\",\"description\":\"生日\"},\"mobileNo\":{\"type\":\"string\",\"description\":\"手机号\"},\"openId\":{\"type\":\"string\",\"description\":\"openid\"},\"customerId\":{\"type\":\"string\",\"description\":\"客户id\"},\"token\":{\"type\":\"string\",\"description\":\"token\"}},\"description\":\"用户信息\"},\"jwtToken\":{\"type\":\"string\",\"description\":\"jwt\"},\"jumpExtraInfo\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"object\",\"properties\":{}}},\"description\":\"扩展信息\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "POST",
         "req_body_form": [],
-        "desc": "<p>无 templateId时 为&nbsp; 新增模板<br>\n有 templateId时 为&nbsp; 修改模板</p>\n",
-        "markdown": "无 templateId时 为  新增模板\n有 templateId时 为  修改模板",
-        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"string\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型 1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"amendDay\":{\"type\":\"number\",\"description\":\"实效（天）\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"},\"scoreCodeList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"评分项code\"},\"description\":\"评分项集合\"}},\"required\":[\"templateType\",\"scoreModel\",\"name\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
-        "uid": 609,
-        "add_time": 1658129725,
-        "up_time": 1660895035,
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1667971556,
+        "up_time": 1667973327,
         "__v": 0
-      },
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "安全相关接口",
+    "desc": "安全相关接口",
+    "add_time": 1668766742,
+    "up_time": 1668766742,
+    "list": [
       {
         "query_path": {
-          "path": "/basic-store-check/template/update",
+          "path": "/secure/param/decrypt",
           "params": []
         },
         "edit_uid": 0,
-        "status": "undone",
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
-        "index": 5,
+        "index": 0,
         "tag": [],
-        "_id": 21167,
-        "method": "POST",
-        "catid": 2395,
-        "title": "编辑模板",
-        "path": "/basic-store-check/template/update",
-        "project_id": 882,
-        "req_params": [],
+        "_id": 15009,
+        "req_body_type": "json",
         "res_body_type": "json",
-        "req_query": [],
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"params\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"string\"}},\"description\":\"参数\"}},\"required\":[\"params\"],\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"加密参数\"}",
+        "title": "参数解密",
+        "path": "/secure/param/decrypt",
+        "catid": 2638,
+        "markdown": "",
         "req_headers": [
           {
             "required": "1",
-            "_id": "62e2411ccf1c790f7296fdc0",
+            "_id": "63775d6f91c3faa0f7a47137",
             "name": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "required": "1",
-            "_id": "62e2411ccf1c790f7296fdbf",
-            "name": "Cookie",
-            "example": "",
-            "desc": ""
+            "value": "application/json",
+            "example": "application/json"
           }
         ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"key\":{\"type\":\"string\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"解密参数\"}",
+        "method": "POST",
         "req_body_form": [],
-        "desc": "",
-        "markdown": "",
-        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"name\":{\"type\":\"string\",\"description\":\"模板名称\"},\"scoreModel\":{\"type\":\"number\",\"description\":\"打分模式 1 评分模式 2 扣分模式\"},\"passValue\":{\"type\":\"number\",\"description\":\"阈值\"},\"templateType\":{\"type\":\"number\",\"description\":\"模板类型 1 固定 2 自定义\"},\"conclusionType\":{\"type\":\"number\",\"description\":\"总结设置类型 1 默认 2 自定义\"},\"conclusionList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"总结\"},\"description\":\"总结设置集合\"}},\"required\":[\"templateId\",\"conclusionType\",\"templateType\",\"scoreModel\",\"name\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
-        "uid": 609,
-        "add_time": 1658129725,
-        "up_time": 1658994972,
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1668766742,
+        "up_time": 1668767087,
         "__v": 0
-      },
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "社区资讯相关接口",
+    "desc": "社区资讯相关接口",
+    "add_time": 1679295457,
+    "up_time": 1679295457,
+    "list": [
       {
         "query_path": {
-          "path": "/basic-store-check/template/updateStatus",
+          "path": "/community/info/article/list",
           "params": []
         },
         "edit_uid": 0,
-        "status": "undone",
+        "status": "done",
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
         "api_opened": false,
-        "index": 6,
+        "index": 0,
         "tag": [],
-        "_id": 21142,
-        "method": "POST",
-        "catid": 2395,
-        "title": "启用/停用模板",
-        "path": "/basic-store-check/template/updateStatus",
-        "project_id": 882,
-        "req_params": [],
+        "_id": 16424,
+        "req_body_type": "json",
         "res_body_type": "json",
-        "req_query": [],
+        "req_body_other": "{\"type\":\"object\",\"properties\":{\"pageNo\":{\"type\":\"integer\",\"description\":\"当前查询页码\",\"default\":\"1\"},\"pageSize\":{\"type\":\"integer\",\"description\":\"每页显示条数\",\"default\":\"10\"}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"请求参数\"}",
+        "title": "获取资讯文章列表",
+        "path": "/community/info/article/list",
+        "catid": 2928,
+        "markdown": "",
         "req_headers": [
           {
             "required": "1",
-            "_id": "62e24129cf1c790f7296fdc2",
+            "_id": "6419166a91c3fad8f0a480ce",
             "name": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "required": "1",
-            "_id": "62e24129cf1c790f7296fdc1",
-            "name": "Cookie",
-            "example": "",
-            "desc": ""
+            "value": "application/json",
+            "example": "application/json"
           }
         ],
+        "req_query": [],
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"total\":{\"type\":\"integer\",\"description\":\"数据总条数\"},\"pageTotal\":{\"type\":\"integer\",\"description\":\"分页总页数\"},\"pageSize\":{\"type\":\"integer\",\"description\":\"每页查询数量\"},\"currentPage\":{\"type\":\"integer\",\"description\":\"当前页面编码\"},\"records\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"description\":\"文章ID\"},\"title\":{\"type\":\"string\",\"description\":\"文章主题\"},\"description\":{\"type\":\"string\",\"description\":\"文章描述\"},\"thumbImg\":{\"type\":\"string\",\"description\":\"文章头图\"},\"publishTime\":{\"type\":\"string\",\"description\":\"文章发布时间\",\"mock\":{\"mock\":\"@datetime\"}}}},\"description\":\"查询数据列表\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"资讯列表\"}",
+        "method": "POST",
         "req_body_form": [],
-        "desc": "",
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1679295457,
+        "up_time": 1679365738,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/community/info/article/detail",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 16429,
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"description\":\"文章ID\"},\"title\":{\"type\":\"string\",\"description\":\"文章标题\"},\"description\":{\"type\":\"string\",\"description\":\"文章描述\"},\"contentType\":{\"type\":\"string\",\"description\":\"文章类型（文档：DOM；超链接：LINK）\"},\"content\":{\"type\":\"string\",\"description\":\"文章内容\"},\"publishTime\":{\"type\":\"string\",\"description\":\"发布时间\",\"mock\":{\"mock\":\"@datetime\"}},\"publisher\":{\"type\":\"string\",\"description\":\"发布人员\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"资讯详情\"}",
+        "method": "GET",
+        "res_body_type": "json",
+        "title": "获取资讯文章详情",
+        "path": "/community/info/article/detail",
+        "catid": 2928,
         "markdown": "",
-        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"templateId\":{\"type\":\"number\",\"description\":\"模板id\"},\"status\":{\"type\":\"number\",\"description\":\"状态 0 启用 1 停用\"}},\"required\":[\"templateId\",\"status\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\"},\"code\":{\"type\":\"string\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}}}",
-        "uid": 609,
-        "add_time": 1658129725,
-        "up_time": 1658994985,
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "6419166b91c3fad9b6a480cf",
+            "name": "articleId",
+            "value": "",
+            "desc": "请求参数"
+          }
+        ],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1679295457,
+        "up_time": 1679365739,
+        "req_body_form": [],
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "用户服务接口",
+    "desc": "用户服务接口",
+    "add_time": 1681957122,
+    "up_time": 1681957122,
+    "list": [
+      {
+        "query_path": {
+          "path": "/user/current/user-info",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 16529,
+        "res_body": "{\"type\":\"object\",\"properties\":{\"success\":{\"type\":\"boolean\",\"default\":\"true\"},\"code\":{\"type\":\"integer\"},\"errorMessage\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"userCode\":{\"type\":\"string\",\"description\":\"用户号码\"},\"name\":{\"type\":\"string\",\"description\":\"客户姓名\"},\"sex\":{\"type\":\"string\",\"description\":\"客户性别\"},\"birthday\":{\"type\":\"string\",\"description\":\"出生日期\"},\"idType\":{\"type\":\"string\",\"description\":\"证件类型\"},\"idNo\":{\"type\":\"string\",\"description\":\"证件号码\"},\"mobileNo\":{\"type\":\"string\",\"description\":\"手机号码\"},\"groupUserInfoVo\":{\"type\":\"object\",\"properties\":{\"status\":{\"type\":\"string\",\"description\":\"绑定情况：Y:已绑定，N:账户不存在或者未绑定\"},\"userId\":{\"type\":\"string\",\"description\":\"一账通用户id\"},\"uniCustomerNo\":{\"type\":\"string\",\"description\":\"一账通客户号码\"}},\"description\":\"集团用户信息\"},\"wechatUserInfoVo\":{\"type\":\"object\",\"properties\":{\"openId\":{\"type\":\"string\",\"description\":\"开放ID\"},\"unionId\":{\"type\":\"string\",\"description\":\"联合ID\"},\"nickName\":{\"type\":\"string\",\"description\":\"昵称\"},\"sex\":{\"type\":\"string\",\"description\":\"性别\"},\"language\":{\"type\":\"string\",\"description\":\"语言\"},\"city\":{\"type\":\"string\",\"description\":\"城市\"},\"province\":{\"type\":\"string\",\"description\":\"省\"},\"country\":{\"type\":\"string\",\"description\":\"国籍\"},\"headImgUrl\":{\"type\":\"string\",\"description\":\"头像\"},\"subScribe\":{\"type\":\"string\",\"description\":\"关注\"},\"subScribeScene\":{\"type\":\"string\",\"description\":\"关注场景\"}},\"description\":\"微信用户信息\"}}}},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"description\":\"结果\"}",
+        "method": "GET",
+        "res_body_type": "json",
+        "title": "获取当前登录用户信息",
+        "path": "/user/current/user-info",
+        "catid": 2943,
+        "markdown": "",
+        "req_headers": [],
+        "req_query": [],
+        "desc": "<p></p>",
+        "project_id": 264,
+        "req_params": [],
+        "uid": 166,
+        "add_time": 1681957122,
+        "up_time": 1681957122,
+        "req_body_form": [],
         "__v": 0
       }
     ]
