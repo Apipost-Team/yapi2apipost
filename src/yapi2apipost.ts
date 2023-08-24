@@ -67,9 +67,21 @@ class yapi2apipost {
         'query': [],
         'header': [],
         'description': item?.desc || '',
+      },
+      response: {
+        success: {
+          parameter: [],
+          raw: '',
+          expect: {}
+        },
+        error: {
+          parameter: [],
+          raw: '',
+          expect: {}
+        }
       }
     }
-    const { request } = api;
+    const { request, response } = api;
     if (item.hasOwnProperty('req_query') && item.req_query instanceof Array) {
       for (const query of item.req_query) {
         query.name && request.query.push({
@@ -101,7 +113,8 @@ class yapi2apipost {
         "mode": "none",
         "parameter": [],
         "raw": '',
-        "raw_para": []
+        "raw_para": [],
+        "raw_schema": {}
       }
       if (item.req_body_type == 'form' && item.hasOwnProperty('req_body_form') && item.req_body_form instanceof Array) {
         request.body.mode = 'form-data';
@@ -116,30 +129,49 @@ class yapi2apipost {
             field_type: "Text"
           })
         }
-      } else if (item.req_body_type == 'json' && item.hasOwnProperty('res_body')) {
-        try {
-          if(Object.prototype.toString.call(item.res_body) !== '[object Object]'){
-            item.res_body = JSON.parse(item.res_body);
-          }
-        } catch (error) {}
-        request.body.mode = 'json';
-        if (item.res_body.hasOwnProperty('type')) {
-          request.body.raw_schema = item.res_body;
-        }
       }
+      //  else if (item.req_body_type == 'json' && item.hasOwnProperty('res_body')) {
+      //   try {
+      //     if (Object.prototype.toString.call(item.res_body) !== '[object Object]') {
+      //       item.res_body = JSON.parse(item.res_body);
+      //     }
+      //   } catch (error) { }
+      //   request.body.mode = 'json';
+      //   if (item.res_body.hasOwnProperty('type')) {
+      //     request.body.raw_schema = item.res_body;
+      //   }
+      // }
       else {
         if (Object.prototype.toString.call(item?.req_body_other) === '[object String]') {
           try {
+            request.body.raw_schema = item?.req_body_other;
             const newSchema = new MockSchema();
             let jsonExample = await newSchema.mock(JSON.parse(item?.req_body_other) || {});
             request.body.raw = JSON.stringify(jsonExample);
           } catch (error) {
-            request.body.raw = item?.req_body_other || ''
+            request.body.raw = item?.req_body_other || '1'
           }
         } else {
-          request.body.raw = item?.req_body_other || ''
+          request.body.raw = item?.req_body_other || '2'
         }
         request.body.mode = 'json';
+      }
+    }
+    if (item.hasOwnProperty('res_body_type')) {
+      response.success = {
+        "parameter": [],
+        "raw": '',
+        "expect": {}
+      }
+      if (item.res_body_type == 'json' && item.hasOwnProperty('res_body')) {
+        try {
+          if (Object.prototype.toString.call(item?.res_body) !== '[object Object]') {
+            response.success.expect = JSON.parse(item?.res_body);
+            const newSchema = new MockSchema();
+            let jsonExample = await newSchema.mock(JSON.parse(item?.res_body) || {});
+            response.success.raw = JSON.stringify(jsonExample) || ''
+          }
+        } catch (error) { }
       }
     }
     return api;
