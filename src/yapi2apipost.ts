@@ -149,10 +149,10 @@ class yapi2apipost {
             let jsonExample = await newSchema.mock(JSON.parse(item?.req_body_other) || {});
             request.body.raw = JSON.stringify(jsonExample);
           } catch (error) {
-            request.body.raw = item?.req_body_other || '1'
+            request.body.raw = item?.req_body_other || ''
           }
         } else {
-          request.body.raw = item?.req_body_other || '2'
+          request.body.raw = item?.req_body_other || ''
         }
         request.body.mode = 'json';
       }
