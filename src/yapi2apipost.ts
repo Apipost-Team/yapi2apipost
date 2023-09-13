@@ -1,4 +1,5 @@
 import MockSchema from 'apipost-mock-schema';
+// import 
 class yapi2apipost {
   version: string;
   project: any;
@@ -26,6 +27,40 @@ class yapi2apipost {
     } else {
       return 'multipart/form-data';
     }
+  }
+  replaceRef = (schemaObj: any) => {
+    try {
+      for (const key in schemaObj) {
+        const value = schemaObj[key];
+        // 如果当前属性的值是一个对象，则递归遍历该对象
+
+        if (typeof value === 'object' && value !== null) {
+          this.replaceRef(value);
+        }
+      }
+    } catch (error) { }
+  }
+  yapiSchema2apipostSchema = (jsonSchemaStr: string) => {
+    let jsonSchema: any = {};
+    try {
+      // // x-apifox-orders 2 APIPOST_ORDERS x-apifox-refs 2 APIPOST_REFS  $ref 2 ref  x-apifox-overrides 2 APIPOST_OVERRIDES
+      // // 替换 x-apifox-orders 为 APIPOST_ORDERS
+      // jsonSchemaStr = jsonSchemaStr.replace(/\"x-apifox-orders\"/g, '\"APIPOST_ORDERS\"');
+      // // 替换 x-apifox-refs 为 APIPOST_REFS
+      // jsonSchemaStr = jsonSchemaStr.replace(/\"x-apifox-refs\"/g, '\"APIPOST_REFS\"');
+      // // 替换 $ref 为 ref
+      // jsonSchemaStr = jsonSchemaStr.replace(/\"\$ref\"/g, '\"ref\"');
+      // // 替换 $ref 为 ref
+      // jsonSchemaStr = jsonSchemaStr.replace(/\"\$\$ref\"/g, '\"ref\"');
+      // // 替换 x-apifox-overrides 为 APIPOST_OVERRIDES
+      // jsonSchemaStr = jsonSchemaStr.replace(/\"x-apifox-overrides\"/g, '\"APIPOST_OVERRIDES\"');
+      // 还原为对象
+      jsonSchema = JSON.parse(jsonSchemaStr);
+
+      this.replaceRef(jsonSchema)
+    } catch (error) { }
+
+    return jsonSchema;
   }
   ConvertResult(status: string, message: string, data: any = '') {
     return {
@@ -144,7 +179,7 @@ class yapi2apipost {
       else {
         if (Object.prototype.toString.call(item?.req_body_other) === '[object String]') {
           try {
-            request.body.raw_schema = item?.req_body_other;
+            request.body.raw_schema = this.yapiSchema2apipostSchema(item?.req_body_other);
             const newSchema = new MockSchema();
             let jsonExample = await newSchema.mock(JSON.parse(item?.req_body_other) || {});
             request.body.raw = JSON.stringify(jsonExample);
@@ -161,12 +196,20 @@ class yapi2apipost {
       response.success = {
         "parameter": [],
         "raw": '',
-        "expect": {}
+        "expect": {
+          name: '成功',
+          isDefault: 1,
+          code: '200',
+          contentType: "json",
+          schema: {},
+          mock: "",
+          verifyType: "schema",
+        },
       }
       if (item.res_body_type == 'json' && item.hasOwnProperty('res_body')) {
         try {
           if (Object.prototype.toString.call(item?.res_body) !== '[object Object]') {
-            response.success.expect = JSON.parse(item?.res_body);
+            response.success.expect.schema = this.yapiSchema2apipostSchema(item?.res_body);
             const newSchema = new MockSchema();
             let jsonExample = await newSchema.mock(JSON.parse(item?.res_body) || {});
             response.success.raw = JSON.stringify(jsonExample) || ''
