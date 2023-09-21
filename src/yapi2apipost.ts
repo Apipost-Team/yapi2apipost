@@ -164,19 +164,7 @@ class yapi2apipost {
             field_type: "Text"
           })
         }
-      }
-      //  else if (item.req_body_type == 'json' && item.hasOwnProperty('res_body')) {
-      //   try {
-      //     if (Object.prototype.toString.call(item.res_body) !== '[object Object]') {
-      //       item.res_body = JSON.parse(item.res_body);
-      //     }
-      //   } catch (error) { }
-      //   request.body.mode = 'json';
-      //   if (item.res_body.hasOwnProperty('type')) {
-      //     request.body.raw_schema = item.res_body;
-      //   }
-      // }
-      else {
+      } else {
         if (Object.prototype.toString.call(item?.req_body_other) === '[object String]') {
           try {
             request.body.raw_schema = this.yapiSchema2apipostSchema(item?.req_body_other);
